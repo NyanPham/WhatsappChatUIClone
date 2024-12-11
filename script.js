@@ -13,7 +13,7 @@ const STORIES = [
     user: "Duy Huynh",
     message: "OMG, have you seen the dance video that just dropped in the group?! 😂",
     time: "12:14",
-    delay: 2500,
+    delay: 6500,
     image: "duy.jpg",
   },
   {
@@ -31,7 +31,7 @@ const STORIES = [
     image: "tuan.jpg",
   },
   {
-    user: "Nhan Pham", // Come on, we were ahead of our time! We're just embracing the classics!
+    user: "Nhan Pham", // Come on, we're just embracing the classics!
     time: "12:14",
     image: "nhan.jpg",
   },
@@ -71,6 +71,11 @@ const STORIES = [
     image: "hang.jpg",
   },
   {
+    user: "Nhan Pham", // "The grandma's got some moves. Don't underestimate her =))"
+    time: "12:16",
+    image: "nhan.jpg",
+  },
+  {
     user: "Hang Nguyen",
     message: "I think it's time for an upgrade. How about something from this year?",
     time: "12:15",
@@ -85,9 +90,19 @@ const STORIES = [
     image: "trang.jpg",
   },
   {
-    user: "Nhan Pham", // "Challenge accepted! Get ready to be dazzled. 😎"
-    time: "12:14",
-    image: "nhan.jpg",
+    user: "Mai Cao",
+    message: "CHALLENGE ACCEPTED!!!",
+    time: "12:16",
+    delay: 7000,
+    image: "mai.jpg",
+  },
+  {
+    user: "Mai Cao",
+    video: "apt_dance.mp4",
+    delay: 3000,
+    time: "12:16",
+    already: true,
+    image: "mai.jpg",
   },
 ];
 
@@ -95,7 +110,11 @@ const chatbox = document.querySelector("[data-chatbox]");
 const chatboxInput = document.querySelector("[data-chatbox-input]");
 let lastUser = null;
 
-window.addEventListener("load", start);
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    start();
+  }, 1000);
+});
 
 async function start() {
   document.querySelectorAll(".block").forEach((b) => b.classList.remove("active"));
@@ -103,7 +122,7 @@ async function start() {
   document.querySelector("[data-start]").classList.remove("unread");
   document.querySelector("[data-start]").classList.add("active");
   document.querySelector("[data-chat-name]").textContent = "1111F.1111";
-  document.querySelector("[data-chat-img]").src = "";
+  document.querySelector("[data-chat-img]").src = "images/group.jpg";
   document.querySelector("[data-new-count]").remove();
   chatbox.innerHTML = "";
 

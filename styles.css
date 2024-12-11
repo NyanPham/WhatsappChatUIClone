@@ -83,6 +83,10 @@ body {
   object-fit: cover;
 }
 
+.header .nav_icons {
+  margin-right: 1rem;
+}
+
 .nav_icons {
   display: flex;
   justify-content: space-between;
