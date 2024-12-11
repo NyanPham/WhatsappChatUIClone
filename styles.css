@@ -49,6 +49,11 @@ body {
   opacity: 0.06;
 }
 
+.container .rightSide .chat-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .header {
   position: relative;
   width: 100%;
@@ -159,8 +164,10 @@ body {
 
 .chatlist .block .imgbx {
   position: relative;
-  min-width: 45px;
-  height: 45px;
+  /* min-width: 45px;
+  height: 45px; */
+  min-width: 60px;
+  height: 60px;
   overflow: hidden;
   border-radius: 50%;
   margin-right: 10px;
@@ -250,7 +257,7 @@ body {
   width: 100%;
   height: calc(100% - 120px);
   padding: 50px;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .chatbox.group-chat {
@@ -261,6 +268,7 @@ body {
   display: flex;
   width: 100%;
   margin: 5px 0;
+  margin-bottom: 1.3rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -275,7 +283,6 @@ body {
   position: relative;
   right: 0;
   text-align: right;
-  max-width: 65%;
   padding: 12px;
   background: #dcf8c6;
   border-radius: 10px;
@@ -357,11 +364,17 @@ body {
   position: relative;
   display: flex;
   align-items: flex-start;
+  gap: 1rem;
   width: 100%;
   margin: 5px 0;
+  margin-bottom: 1.1rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.message.already {
+  transition: unset;
 }
 
 .message.show {
@@ -370,8 +383,10 @@ body {
 }
 
 .message .userimg {
-  width: 40px;
-  height: 40px;
+  /* width: 40px;
+  height: 40px; */
+  width: 60px;
+  height: 60px;
   overflow: hidden;
   border-radius: 50%;
   margin-right: 10px;
@@ -389,12 +404,15 @@ body {
 
 .message .message_content {
   max-width: 65%;
+  display: flex;
+  flex-direction: column;
 }
 
 .message .message_content h4 {
   margin: 0;
   font-size: 0.9em;
   color: #555;
+  margin-bottom: 0.5rem;
 }
 
 .message .message_content p {
@@ -404,7 +422,7 @@ body {
   padding: 12px;
   background: #dcf8c6;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .message .message_content p::before {
@@ -424,12 +442,18 @@ body {
 .message .message_content p span {
   display: block;
   margin-top: 5px;
-  font-size: 0.8em;
+  font-size: 12px;
   user-select: none;
 }
 
 .my_message .message_content p {
   background: #dcf8c6;
+}
+
+.message_content .message-time {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
 }
 
 .frnd_message .message_content p {
@@ -444,4 +468,173 @@ body {
   width: 20px;
   height: 20px;
   background: linear-gradient(225deg, #fff 0%, #fff 50%, transparent 50%, transparent 100%);
+}
+
+.video_message video {
+  width: 70%; /* Initial width */
+  height: auto; /* Maintain aspect ratio */
+  position: relative;
+}
+
+.video_message video::before {
+  content: "\25BA"; /* Unicode for play button */
+  font-size: 3em;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.video_message .video_container {
+  position: relative;
+  width: 300px; /* Initial width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.video_message video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video_message .play_button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video_message .play_button::before {
+  content: "\25BA"; /* Unicode for play button */
+  font-size: 2em;
+  color: white;
+}
+
+.video_message .video_container:hover .play_button {
+  opacity: 1;
+}
+.video_message .video_container {
+  .video_message .video_container {
+    position: relative;
+    width: 300px; /* Initial width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .video_message video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .video_message .play_button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .video_message .play_button::before {
+    content: "\25BA"; /* Unicode for play button */
+    font-size: 2em;
+    color: white;
+  }
+
+  .video_message .video_container:hover .play_button {
+    opacity: 1;
+  }
+  position: relative;
+  .video_message .video_container {
+    position: relative;
+    width: 300px; /* Initial width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .video_message video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .video_message .play_button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .video_message .play_button::before {
+    content: "\25BA"; /* Unicode for play button */
+    font-size: 2em;
+    color: white;
+  }
+
+  .video_message .video_container:hover .play_button {
+    opacity: 1;
+  }
+  width: 300px; /* Initial width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.video_message video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video_message .play_button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video_message .play_button::before {
+  content: "\25BA"; /* Unicode for play button */
+  font-size: 2em;
+  color: white;
+}
+
+.video_message .video_container:hover .play_button {
+  opacity: 1;
 }
